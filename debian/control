@@ -1,0 +1,18 @@
+Source: teamspeak3-server
+Section: net
+Priority: extra
+Maintainer: Andras Elso <elso.andras@gmail.com>
+Build-Depends: debhelper (>= 5), cdbs, libmysqlclient15off
+Standards-Version: 3.7.2
+
+Package: teamspeak3-server
+Architecture: any
+Depends:  ${shlibs:Depends}, ${misc:Depends}
+Description: TeamSpeak 3 Server
+ TeamSpeak is flexible, powerful, scalable software which enables people to speak
+ with one another over the Internet. TeamSpeak consists of both client and server software.
+ The server acts as a host to multiple client connections, capable of handling literally
+ thousands of simultaneous users. This results in an Internet based conferencing solution
+ that works in a variety of applications such as team mates speaking with one another
+ while playing their favorite online game, facilitating inter-office communication among
+ co-workers, or simply for personal communication with friends and family.

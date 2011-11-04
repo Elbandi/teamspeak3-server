@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+TS3_ARCH := $(subst i386,x86,$(DEB_HOST_ARCH))
+
+DEB_TAR_SRCDIR := teamspeak3-server_linux-$(TS3_ARCH)
+DEB_TARBALL := teamspeak3-server_linux-$(TS3_ARCH)-$(DEB_UPSTREAM_VERSION).tar.gz
+include /usr/share/cdbs/1/rules/tarball.mk
+
+build/teamspeak3-server::
+	cp $(DEB_BUILDDIR)/ts3server_linux_$(TS3_ARCH) $(DEB_BUILDDIR)/teamspeak3-server
+
+print-version:
+	@@echo "Debian version:          $(DEB_VERSION)"
+	@@echo "Upstream version:        $(DEB_UPSTREAM_VERSION)"
+
+get-orig-source::
+	wget http://ftp.4players.de/pub/hosted/ts3/releases/3.0.0/teamspeak3-server_linux-$(TS3_ARCH)-$(DEB_UPSTREAM_VERSION).tar.gz \
+		-O teamspeak3-server_linux-$(TS3_ARCH)-$(DEB_UPSTREAM_VERSION).tar.gz

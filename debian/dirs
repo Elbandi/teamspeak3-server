@@ -1,0 +1,7 @@
+etc/init.d
+etc/teamspeak3-server
+usr/sbin
+usr/share/teamspeak3-server
+usr/lib/teamspeak3-server
+var/lib/teamspeak3-server
+var/log/teamspeak3-server

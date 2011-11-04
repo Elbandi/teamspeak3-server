@@ -1,0 +1,5 @@
+ts3server.ini	etc/teamspeak3-server
+build-tree/*/serverquerydocs	usr/share/teamspeak3-server
+build-tree/*/sql	usr/share/teamspeak3-server
+build-tree/*/libts3db_*.so	usr/lib/teamspeak3-server
+build-tree/*/teamspeak3-server	usr/sbin

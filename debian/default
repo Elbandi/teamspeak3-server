@@ -1,0 +1,14 @@
+# Defaults for teamspeak3-server initscript
+# sourced by /etc/init.d/teamspeak3-server
+# installed at /etc/default/teamspeak3-server by the maintainer scripts
+
+#
+# This is a POSIX shell fragment
+#
+
+# Please adjust the configuration to your needs
+# and then set RUN to 'yes'
+RUN=no
+
+# Additional options that are passed to the Daemon.
+DAEMON_OPTS="inifile=/etc/teamspeak3-server/ts3server.ini"
