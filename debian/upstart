@@ -1,0 +1,26 @@
+# teamspeak3-server - TeamSpeak 3 Server
+#
+
+description     "TeamSpeak 3 Server"
+author          "Elbandi"
+
+start on (net-device-up IFACE!=lo and local-filesystems and runlevel [2345])
+stop on runlevel [016]
+
+respawn
+
+chdir /var/lib/teamspeak3-server
+pre-start script
+    test -x /usr/sbin/teamspeak3-server || { stop; exit 0; }
+
+    RUN="no"
+    test -f /etc/default/teamspeak3-server && . /etc/default/teamspeak3-server
+    test "$RUN" != "yes" && { stop; exit 0; }
+    exit 0
+end script
+
+script
+    test -f /etc/default/teamspeak3-server && . /etc/default/teamspeak3-server
+    export LD_LIBRARY_PATH="/usr/lib/teamspeak3-server"
+    exec start-stop-daemon --start --quiet --chdir /var/lib/teamspeak3-server --chuid ts3:ts3 --exec /usr/sbin/teamspeak3-server -- $DAEMON_OPTS
+end script
